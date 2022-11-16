@@ -171,14 +171,21 @@ code {
   font-family: var(--font-family-monospace);
 }
 pre {
+  line-height: 1.375;
   direction: ltr;
   text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  background-color: #f6f6f6;
 }
 code {
   word-break: break-all;
@@ -186,7 +193,9 @@ code {
 
 /* Header */
 .home {
+  padding: 0 1rem;
   float: left;
+  margin: 1rem 0; /* 16px /16 */
 }
 .home :link:not(:hover) {
   text-decoration: none;
@@ -207,29 +216,79 @@ code {
   text-decoration: none;
 }
 .nav-item-active {
-  text-decoration: none;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* Posts list */
 .postlist {
   list-style: none;
-  padding: var(--padding);
+  padding: 0;
 }
 .postlist-item {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   counter-increment: start-from -1;
+  line-height: 1.8;
 }
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
   content: "" counter(start-from, decimal-leading-zero) ". ";
+  line-height: 100%;
   text-align: right;
 }
 .postlist-date,
 .postlist-item:before {
+  font-size: 0.8125em; /* 13px /16 */
+  color: var(--color-gray-90);
+}
+.postlist-date {
+  word-spacing: -0.5px;
+}
+.postlist-link {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+  font-weight: bold;
+}
+.tmpl-home .postlist-link {
+  font-size: 1.1875em; /* 19px /16 */
+  font-weight: 700;
+}
 
+
+/* Tags */
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
+  margin-left: 0.6666666666667em; /* 8px /12 */
+  margin-top: 0.5em; /* 6px /12 */
+  margin-bottom: 0.5em; /* 6px /12 */
+  color: var(--color-gray-90);
+  border: 1px solid var(--color-gray-50);
+  border-radius: 0.25em; /* 3px /12 */
+  text-decoration: none;
+  line-height: 1.8;
+}
+a[href].post-tag,
+a[href].post-tag:visited {
+  color: inherit;
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  background-color: var(--color-gray-20);
+}
+.postlist-item > .post-tag {
+  align-self: center;
 }
 .postlist-date {
 }
