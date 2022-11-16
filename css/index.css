@@ -90,7 +90,6 @@ h3 {
 
 p,
 li {
-  max-width: 60ch;
 }
 
 
@@ -119,7 +118,7 @@ img {
 }
 p,
 .tmpl-post li {
-  margin-left: 1em;
+
 }
 
 a[href] {
@@ -220,7 +219,7 @@ code {
 /* Posts list */
 .postlist {
   list-style: none;
-  padding: 0.5em;
+  padding: 0;
 }
 .postlist-item {
   display: flex;
@@ -228,6 +227,7 @@ code {
   align-items: baseline;
   counter-increment: start-from -1;
   line-height: 1.8;
+  margin-top: 1em;
 }
 .postlist-item:before {
   display: inline-block;
@@ -243,6 +243,10 @@ code {
 .postlist-date {
 }
 .postlist-link {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
@@ -250,6 +254,7 @@ code {
 .tmpl-home .postlist-link {
   font-weight: 700;
 }
+
 
 
 /* Tags */
