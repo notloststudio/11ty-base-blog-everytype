@@ -34,10 +34,73 @@
     --text-color-link: #1493fb;
     --text-color-link-visited: #a6a6f8;
 
-    --background-color: #15202b;
+    --background-color: #000;
   }
 }
 
+@media (min-width: 45em) {
+  h1 {
+    font-size: var(--size-900);
+  }
+
+  h2 {
+    font-size: var(--size-700);
+  }
+
+  p {
+    font-size: var(--size-500);
+  }
+
+  figcaption {
+    font-size: var(--size-400);
+  }
+
+  blockquote p {
+    font-size: var(--size-500);
+    max-width: 40ch;
+  }
+
+  .post time {
+    font-size: var(--size-600);
+  }
+}
+
+h1 {
+  font-size: var(--size-700);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--size-600);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: var(--size-600);
+}
+
+p,
+li {
+  max-width: 60ch;
+}
+
+h1 {
+  max-width: 15ch;
+}
+
+h2,
+h3 {
+  max-width: 25ch;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.99);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
 
 /* Global stylesheet */
 * {
@@ -46,11 +109,11 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: var(--font-family);
-  color: var(--text-color);
-  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-size: var(--size-400);
+  --border: 1px solid black;
+  --padding: calc(1rem * 1.4);
+  --border-thick: 0px;
 }
 
 p:last-child {
@@ -59,18 +122,21 @@ p:last-child {
 p,
 .tmpl-post li,
 img {
-  max-width: 37.5em; /* 600px /16 */
+  max-width: 100%; /* 600px /16 */
 }
 p,
 .tmpl-post li {
-  line-height: 1.45;
 }
 
 a[href] {
-  color: var(--text-color-link);
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
 }
-a[href]:visited {
-  color: var(--text-color-link-visited);
+
+[href]:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #ff3131;
 }
 
 main {
@@ -79,8 +145,10 @@ main {
 main :first-child {
   margin-top: 0;
 }
+main:focus {
+  outline: none;
+}
 header {
-  border-bottom: 1px dashed var(--color-gray-20);
 }
 header:after {
   content: "";
@@ -99,10 +167,8 @@ table th {
 pre,
 code {
   font-family: var(--font-family-monospace);
-  line-height: 1.5;
 }
 pre {
-  font-size: 14px;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -128,7 +194,6 @@ code {
   padding: 0 1rem;
   float: left;
   margin: 1rem 0; /* 16px /16 */
-  font-size: 1em; /* 16px /16 */
 }
 .home :link:not(:hover) {
   text-decoration: none;
@@ -202,7 +267,6 @@ code {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 0.75em; /* 12px /16 */
   padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
@@ -224,20 +288,61 @@ a[href].post-tag:focus {
 .postlist-item > .post-tag {
   align-self: center;
 }
+.postlist-date {
+}
+.postlist-link {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: none;
+}
+.postlist-item-active .postlist-link {
+  font-weight: bold;
+}
+.tmpl-home .postlist-link {
+  font-weight: 700;
+}
+
+
+/* Tags */
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 0.08em 0.3em; /* 1px 4px /12 */
+  margin-left: 0.6em; /* 8px /12 */
+  margin-top: 0.5em; /* 6px /12 */
+  margin-bottom: 0.5em; /* 6px /12 */
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0em; /* 3px /12 */
+  text-decoration: none;
+}
+a[href].post-tag,
+a[href].post-tag:visited {
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+}
+.postlist-item > .post-tag {
+  align-self: center;
+}
 
 /* Infobox */
 :root {
-  --color-infobox: #ffc;
+  --color-infobox: #ff3131;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-infobox: #082840;
+    --color-infobox: #ff3131;
   }
 }
 
 .infobox {
   background-color: var(--color-infobox);
-  color: var(--color-gray-90);
+  color: #fff;
   padding: 1em 0.625em; /* 16px 10px /16 */
 }
 .infobox ol:only-child {
@@ -249,7 +354,6 @@ a[href].post-tag:focus {
   font-family: sans-serif;
   text-decoration: none;
   font-style: normal;
-  margin-left: .1em;
 }
 a[href].direct-link,
 a[href].direct-link:visited {
@@ -259,5 +363,285 @@ a[href].direct-link:focus,
 a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
-  color: #aaa;
 }
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.wrapper {
+  border-width: var(--border-thick);
+  border: var(--border-thick) solid;
+  padding: var(--padding);
+}
+
+/* Box
+-----------------------------------------------------------------------*/
+.box {
+  display: block;
+  padding: var(--padding);
+  border-width: var(--border-thick);
+  border: var(--border-thick) solid;
+  /* ↓ For high contrast mode */
+  outline: var(--border-thick) solid transparent;
+  outline-offset: calc(var(--border-thick) * -1);
+}
+
+/* The Stack
+-----------------------------------------------------------------------*/
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  --space: 1.5rem;
+}
+
+.stack > * + * {
+  margin-top: var(--space);
+}
+
+/* The Center
+-----------------------------------------------------------------------*/
+.center {
+  box-sizing: content-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60ch;
+  /* ↓ Intrinsic Centering: That is, centering elements based on their natural, content-based widths. */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+
+  /* ↓ Gutters (i.e. 1em) */
+  /* padding-left: 1em;
+  padding-right: 1em; */
+}
+
+/* The Cluster
+-----------------------------------------------------------------------*/
+.cluster {
+  --space: 1rem;
+  overflow: hidden;
+}
+
+.cluster > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.cluster > * > * {
+  margin: calc(var(--space) / 2);
+}
+
+/* The Sidebar
+-----------------------------------------------------------------------*/
+
+/* ↓ targets the intermediary wrapper */
+.sidebar {
+  overflow: hidden;
+  --space: 1em;
+  --side-width: 15rem;
+  --content-min: 50%;
+}
+
+.sidebar > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc((var(--space) / 2) * -1);
+}
+
+.sidebar > * > * {
+  flex-basis: var(--side-width);
+  flex-grow: 1;
+  /* ↓ applies to both elements */
+  margin: calc((var(--space) / 2));
+}
+
+/* ↓ if is a right sidebar (side: right) -> :first-child */
+.sidebar > * > :last-child {
+  /* ↓ grow from nothing */
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: calc(var(--content-min) - var(--space));
+}
+
+/* The Switcher
+-----------------------------------------------------------------------*/
+.switcher {
+  --threshold: 30rem;
+  --space: 1rem;
+  --large: calc(1 + 7 / 10);
+}
+
+.switcher > * {
+  display: flex;
+  flex-wrap: wrap;
+  /* ↓ Multiply by -1 to make negative */
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.switcher > * > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--threshold) - (100% - var(--space))) * 999);
+  /* ↓ Half the value to each element, combining to make the whole */
+  margin: calc(var(--space) / 2);
+}
+
+/* .switcher > * > :nth-child(1) {
+  flex-grow: var(--large);
+} */
+
+.switcher > * > :nth-last-child(n + 4),
+.switcher > * > :nth-last-child(n + 4) ~ * {
+  flex-basis: 100%;
+}
+
+/* The Cover
+-----------------------------------------------------------------------*/
+.cover {
+  --padding: 1rem;
+  --min-height: 50vh;
+  --space: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--min-height);
+  /* ↓ noPad padding: 0; */
+  padding: var(--padding);
+}
+
+.cover > * {
+  margin-top: var(--space);
+  margin-bottom: var(--space);
+}
+
+/* ↓ h2 is the centered selector but can be any selector */
+.cover > :first-child:not(h2) {
+  margin-top: 0;
+}
+
+.cover > :last-child:not(h2) {
+  margin-bottom: 0;
+}
+
+/* ↓ h2 is the centered selector but can be any selector */
+.cover > h2 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* The Grid
+-----------------------------------------------------------------------*/
+.grid {
+  --min: 15rem;
+  --space: 1rem;
+  align-content: start;
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: 100%;
+}
+
+/* needs javascript for when the container size is wider than the grid width */
+.grid.aboveMin {
+  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+}
+
+/* The Frame
+-----------------------------------------------------------------------*/
+.frame {
+  padding-bottom: calc(var(--n) / var(--d) * 100%);
+  position: relative;
+}
+
+.frame916 {
+  --n: 9;
+  --d: 16;
+}
+
+.frame43 {
+  --n: 3;
+  --d: 4;
+}
+
+.frame-square {
+  --n: 1;
+  --d: 1;
+}
+
+.frame > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame > img,
+.frame > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The Reel
+-----------------------------------------------------------------------*/
+
+.reel {
+  --space: 1rem;
+  --itemWidth: auto;
+  --height: auto;
+  --trackColor: lightcoral;
+  --thumbColor: #fff;
+  display: flex;
+  /* ↓ For images, which may be very large or use differing aspect ratios, we may want to set the Reel’s height. */
+  height: var(--height);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-color: var(--thumbColor) var(--trackColor);
+}
+
+.reel::-webkit-scrollbar {
+  height: 1rem;
+}
+
+.reel::-webkit-scrollbar-track {
+  background-color: var(--trackColor);
+}
+
+.reel::-webkit-scrollbar-thumb {
+  background-color: var(--trackColor);
+  background-image: linear-gradient(
+    var(--trackColor) 0,
+    var(--trackColor) 0.25rem,
+    var(--thumbColor) 0.25rem,
+    var(--thumbColor) 0.75rem,
+    var(--trackColor) 0.75rem
+  );
+}
+
+.reel > * {
+  flex: 0 0 var(--itemWidth);
+}
+
+.reel > img {
+  height: 100%;
+  flex-basis: auto;
+  width: auto;
+}
+
+.reel > * + * {
+  margin-left: var(--space);
+}
+
+.reel.overflowing {
+  padding-bottom: var(--space);
+  }
+  
