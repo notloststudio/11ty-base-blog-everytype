@@ -13,7 +13,7 @@
 
 /* Theme colors */
 :root {
-  --background-color: #ffffff;
+  --background-color: #fff;
   --text-color: #000;
   --text-color-link: #000;
   --text-color-link-visited: #000;
@@ -21,11 +21,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-
-    /* --text-color is assigned to --color-gray-_ above */
-    --text-color-link: #fff;
-    --text-color-link-visited: #fff;
-    --background-color: #000000;
+  --background-color: #000;
+  --text-color: #fff;
+  --text-color-link: #fff;
+  --text-color-link-visited: #fff;
   }
 }
 
@@ -170,8 +169,6 @@ pre {
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  padding: 1em;
-  margin: .5em 0;
 }
 code {
   word-break: break-all;
@@ -179,9 +176,7 @@ code {
 
 /* Header */
 .home {
-  padding: 0 1rem;
   float: left;
-  margin: 1rem 0; /* 16px /16 */
 }
 .home :link:not(:hover) {
   text-decoration: none;
@@ -208,9 +203,6 @@ code {
 /* Posts list */
 .postlist {
   list-style: none;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
   padding: var(--padding);
 }
 .postlist-item {
@@ -218,21 +210,18 @@ code {
   flex-wrap: wrap;
   align-items: baseline;
   counter-increment: start-from -1;
-  line-height: 1.8;
 }
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
   content: "" counter(start-from, decimal-leading-zero) ". ";
-  line-height: 100%;
   text-align: right;
 }
 .postlist-date,
 .postlist-item:before {
-  --flow-space: var(--size-400);
+
 }
 .postlist-date {
-	  --flow-space: var(--size-400);
 }
 .postlist-link {
   padding-left: .25em;
@@ -255,8 +244,8 @@ code {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
-  margin-left: 0.6666666666667em; /* 8px /12 */
+  padding: 0.08em 0.3em; /* 1px 4px /12 */
+  margin-left: 0.6em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
   color: #000;
