@@ -31,446 +31,226 @@
   }
 }
 
+
+/* Global stylesheet */
 * {
   box-sizing: border-box;
 }
 
-:root {
-  --size-300: 0.75rem;
-  --size-400: 1.1rem;
-  --size-500: 1.33rem;
-  --size-600: 1.77rem;
-  --size-700: 2.36rem;
-  --size-800: 3.15rem;
-  --size-900: 4.2rem;
-}
-
-a:not([class]) {
-  color: currentColor;
-}
-
-:focus {
-  outline: 2px dashed;
-  outline-offset: 0.25rem;
-}
-
-main:focus {
-  outline: none;
-}
-
-
-[href]:hover {
-  text-decoration: none;
-  border-bottom: 1px solid #999;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue,
-    helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  line-height: 1.3;
-}
-
-h1,
-h2 {
-  font-weight: 600;
-}
-
-h1 {
-  font-size: var(--size-700);
-}
-
-h2 {
-  font-size: var(--size-600);
-}
-
-h3 {
-  font-size: var(--size-600);
-}
-
-img {
-  max-width: 90ch;
-}
-
-figcaption {
-  font-size: var(--size-400);
-  margin-top: 1rem;
-  color: #ababab;
-}
-
-blockquote {
-  padding-left: var(--size-500);
-  border-left: 5px solid;
-  font-style: italic;
-}
-
-::selection {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.99);
-}
-
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
-p,
-li {
-  max-width: 60ch;
-}
-
-h1 {
-  max-width: 15ch;
-}
-
-h2,
-h3 {
-  max-width: 25ch;
-}
-
-.post {
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
-  padding: var(--padding);
-}
-
-.post time {
-  --flow-space: var(--size-400);
-  display: block;
-}
-
-.post :is(h2, h3) {
-  --flow-space: var(--size-900);
-}
-
-.post :is(h2, h3) + * {
-  --flow-space: var(--size-400);
-}
-
-.post figure,
-.post figure + * {
-  --flow-space: var(--size-400);
-}
-
-@media (min-width: 45em) {
-  h1 {
-    font-size: var(--size-900);
-  }
-
-  h2 {
-    font-size: var(--size-700);
-  }
-
-  p {
-    font-size: var(--size-500);
-  }
-
-  figcaption {
-    font-size: var(--size-400);
-  }
-
-  blockquote p {
-    font-size: var(--size-500);
-    max-width: 40ch;
-  }
-
-  .post time {
-    font-size: var(--size-600);
-  }
-}
-
+html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  --border: 1px solid black;
-  --padding: calc(1rem * 1.4);
-  --border-thick: 1px;
-  padding: 2rem;
+  padding: 0;
   margin: 0;
-  font-size: var(--size-400);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
-img {
-  max-width: 100%;
-}
-
-.container {
-  max-width: 90vw;
-  margin: 0 auto;
-}
-
-.wrapper {
-  border-width: var(--border-thick);
-  border: var(--border-thick) solid;
-  padding: var(--padding);
-}
-
-/* Box
------------------------------------------------------------------------*/
-.box {
-  display: block;
-  padding: var(--padding);
-  border-width: var(--border-thick);
-  border: var(--border-thick) solid;
-  /* ↓ For high contrast mode */
-  outline: var(--border-thick) solid transparent;
-  outline-offset: calc(var(--border-thick) * -1);
-}
-
-/* The Stack
------------------------------------------------------------------------*/
-.stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  --space: 1.5rem;
-}
-
-.stack > * + * {
-  margin-top: var(--space);
-}
-
-/* The Center
------------------------------------------------------------------------*/
-.center {
-  box-sizing: content-box;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 60ch;
-  /* ↓ Intrinsic Centering: That is, centering elements based on their natural, content-based widths. */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-
-  /* ↓ Gutters (i.e. 1em) */
-  /* padding-left: 1em;
-  padding-right: 1em; */
-}
-
-/* The Cluster
------------------------------------------------------------------------*/
-.cluster {
-  --space: 1rem;
-  overflow: hidden;
-}
-
-.cluster > * {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  margin: calc(var(--space) / 2 * -1);
-}
-
-.cluster > * > * {
-  margin: calc(var(--space) / 2);
-}
-
-/* The Sidebar
------------------------------------------------------------------------*/
-
-/* ↓ targets the intermediary wrapper */
-.sidebar {
-  overflow: hidden;
-  --space: 1em;
-  --side-width: 15rem;
-  --content-min: 50%;
-}
-
-.sidebar > * {
-  display: flex;
-  flex-wrap: wrap;
-  margin: calc((var(--space) / 2) * -1);
-}
-
-.sidebar > * > * {
-  flex-basis: var(--side-width);
-  flex-grow: 1;
-  /* ↓ applies to both elements */
-  margin: calc((var(--space) / 2));
-}
-
-/* ↓ if is a right sidebar (side: right) -> :first-child */
-.sidebar > * > :last-child {
-  /* ↓ grow from nothing */
-  flex-basis: 0;
-  flex-grow: 999;
-  min-width: calc(var(--content-min) - var(--space));
-}
-
-/* The Switcher
------------------------------------------------------------------------*/
-.switcher {
-  --threshold: 30rem;
-  --space: 1rem;
-  --large: calc(1 + 7 / 10);
-}
-
-.switcher > * {
-  display: flex;
-  flex-wrap: wrap;
-  /* ↓ Multiply by -1 to make negative */
-  margin: calc(var(--space) / 2 * -1);
-}
-
-.switcher > * > * {
-  flex-grow: 1;
-  flex-basis: calc((var(--threshold) - (100% - var(--space))) * 999);
-  /* ↓ Half the value to each element, combining to make the whole */
-  margin: calc(var(--space) / 2);
-}
-
-/* .switcher > * > :nth-child(1) {
-  flex-grow: var(--large);
-} */
-
-.switcher > * > :nth-last-child(n + 4),
-.switcher > * > :nth-last-child(n + 4) ~ * {
-  flex-basis: 100%;
-}
-
-/* The Cover
------------------------------------------------------------------------*/
-.cover {
-  --padding: 1rem;
-  --min-height: 50vh;
-  --space: 1rem;
-  display: flex;
-  flex-direction: column;
-  min-height: var(--min-height);
-  /* ↓ noPad padding: 0; */
-  padding: var(--padding);
-}
-
-.cover > * {
-  margin-top: var(--space);
-  margin-bottom: var(--space);
-}
-
-/* ↓ h2 is the centered selector but can be any selector */
-.cover > :first-child:not(h2) {
-  margin-top: 0;
-}
-
-.cover > :last-child:not(h2) {
+p:last-child {
   margin-bottom: 0;
 }
-
-/* ↓ h2 is the centered selector but can be any selector */
-.cover > h2 {
-  margin-top: auto;
-  margin-bottom: auto;
+p,
+.tmpl-post li,
+img {
+  max-width: 37.5em; /* 600px /16 */
+}
+p,
+.tmpl-post li {
+  line-height: 1.45;
 }
 
-/* The Grid
------------------------------------------------------------------------*/
-.grid {
-  --min: 15rem;
-  --space: 1rem;
-  align-content: start;
-  display: grid;
-  gap: var(--space);
-  grid-template-columns: 100%;
+a[href] {
+  color: var(--text-color-link);
+}
+a[href]:visited {
+  color: var(--text-color-link-visited);
 }
 
-/* needs javascript for when the container size is wider than the grid width */
-.grid.aboveMin {
-  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+main {
+  padding: 1rem;
+}
+main :first-child {
+  margin-top: 0;
+}
+header {
+  border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* The Frame
------------------------------------------------------------------------*/
-.frame {
-  padding-bottom: calc(var(--n) / var(--d) * 100%);
-  position: relative;
+table {
+  margin: 1em 0;
+}
+table td,
+table th {
+  padding-right: 1em;
 }
 
-.frame916 {
-  --n: 9;
-  --d: 16;
+pre,
+code {
+  font-family: var(--font-family-monospace);
+  line-height: 1.5;
+}
+pre {
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  background-color: #f6f6f6;
+}
+code {
+  word-break: break-all;
 }
 
-.frame43 {
-  --n: 3;
-  --d: 4;
+/* Header */
+.home {
+  padding: 0 1rem;
+  float: left;
+  margin: 1rem 0; /* 16px /16 */
+  font-size: 1em; /* 16px /16 */
+}
+.home :link:not(:hover) {
+  text-decoration: none;
 }
 
-.frame-square {
-  --n: 1;
-  --d: 1;
+/* Nav */
+.nav {
+  padding: 0;
+  list-style: none;
+  float: left;
+  margin-left: 1em;
+}
+.nav-item {
+  display: inline-block;
+  margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+  text-decoration: none;
+}
+.nav-item-active {
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-.frame > * {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+/* Posts list */
+.postlist {
+  list-style: none;
+  padding: 0;
+}
+.postlist-item {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: baseline;
+  counter-increment: start-from -1;
+  line-height: 1.8;
+}
+.postlist-item:before {
+  display: inline-block;
+  pointer-events: none;
+  content: "" counter(start-from, decimal-leading-zero) ". ";
+  line-height: 100%;
+  text-align: right;
+}
+.postlist-date,
+.postlist-item:before {
+  font-size: 0.8125em; /* 13px /16 */
+  color: var(--color-gray-90);
+}
+.postlist-date {
+  word-spacing: -0.5px;
+}
+.postlist-link {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+  font-weight: bold;
+}
+.tmpl-home .postlist-link {
+  font-size: 1.1875em; /* 19px /16 */
+  font-weight: 700;
+}
+
+
+/* Tags */
+.post-tag {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.75em; /* 12px /16 */
+  padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
+  margin-left: 0.6666666666667em; /* 8px /12 */
+  margin-top: 0.5em; /* 6px /12 */
+  margin-bottom: 0.5em; /* 6px /12 */
+  color: var(--color-gray-90);
+  border: 1px solid var(--color-gray-50);
+  border-radius: 0.25em; /* 3px /12 */
+  text-decoration: none;
+  line-height: 1.8;
+}
+a[href].post-tag,
+a[href].post-tag:visited {
+  color: inherit;
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  background-color: var(--color-gray-20);
+}
+.postlist-item > .post-tag {
+  align-self: center;
 }
 
-.frame > img,
-.frame > video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Infobox */
+:root {
+  --color-infobox: #ffc;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-infobox: #082840;
+  }
 }
 
-/* The Reel
------------------------------------------------------------------------*/
-
-.reel {
-  --space: 1rem;
-  --itemWidth: auto;
-  --height: auto;
-  --trackColor: lightcoral;
-  --thumbColor: #fff;
-  display: flex;
-  /* ↓ For images, which may be very large or use differing aspect ratios, we may want to set the Reel’s height. */
-  height: var(--height);
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-color: var(--thumbColor) var(--trackColor);
+.infobox {
+  background-color: var(--color-infobox);
+  color: var(--color-gray-90);
+  padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.infobox ol:only-child {
+  margin: 0;
 }
 
-.reel::-webkit-scrollbar {
-  height: 1rem;
+/* Direct Links / Markdown Headers */
+.direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  margin-left: .1em;
 }
-
-.reel::-webkit-scrollbar-track {
-  background-color: var(--trackColor);
+a[href].direct-link,
+a[href].direct-link:visited {
+  color: transparent;
 }
-
-.reel::-webkit-scrollbar-thumb {
-  background-color: var(--trackColor);
-  background-image: linear-gradient(
-    var(--trackColor) 0,
-    var(--trackColor) 0.25rem,
-    var(--thumbColor) 0.25rem,
-    var(--thumbColor) 0.75rem,
-    var(--trackColor) 0.75rem
-  );
-}
-
-.reel > * {
-  flex: 0 0 var(--itemWidth);
-}
-
-.reel > img {
-  height: 100%;
-  flex-basis: auto;
-  width: auto;
-}
-
-.reel > * + * {
-  margin-left: var(--space);
-}
-
-.reel.overflowing {
-  padding-bottom: var(--space);
+a[href].direct-link:focus,
+a[href].direct-link:focus:visited,
+:hover > a[href].direct-link,
+:hover > a[href].direct-link:visited {
+  color: #aaa;
 }
