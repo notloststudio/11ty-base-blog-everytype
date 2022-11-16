@@ -119,6 +119,7 @@ img {
 }
 p,
 .tmpl-post li {
+  margin-left: 1em;
 }
 
 a[href] {
@@ -242,8 +243,6 @@ code {
 .postlist-date {
 }
 .postlist-link {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
