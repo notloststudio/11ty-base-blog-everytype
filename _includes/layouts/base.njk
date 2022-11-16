@@ -16,6 +16,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
   <body>
+      <div class="container">
     <header>
       <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
 
@@ -46,5 +47,6 @@
     <footer></footer>
 
     <!-- Current page: {{ page.url | url }} -->
+    </div>
   </body>
 </html>
