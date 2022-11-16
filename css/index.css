@@ -29,6 +29,60 @@
 }
 
 
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+@media (min-width: 45em) {
+  h1 {
+    font-size: var(--size-900);
+  }
+
+  h2 {
+    font-size: var(--size-700);
+  }
+
+  p {
+    font-size: var(--size-500);
+  }
+
+  figcaption {
+    font-size: var(--size-400);
+  }
+
+  blockquote p {
+    font-size: var(--size-500);
+    max-width: 40ch;
+  }
+
+  .post time {
+    font-size: var(--size-600);
+  }
+}
+
+h1 {
+  font-size: var(--size-700);
+  font-weight: 600;
+  max-width: 60ch;
+}
+
+h2 {
+  font-size: var(--size-600);
+  font-weight: 600;
+    max-width: 60ch;
+}
+
+h3 {
+  font-size: var(--size-600);
+    max-width: 60ch;
+}
+
+p,
+li {
+  max-width: 60ch;
+}
+
+
 /* Global stylesheet */
 * {
   box-sizing: border-box;
