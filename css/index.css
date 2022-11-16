@@ -4,11 +4,11 @@
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
   --size-300: 0.75rem;
   --size-400: 1.05rem;
-  --size-500: 1.33rem;
-  --size-600: 1.77rem;
-  --size-700: 2.36rem;
-  --size-800: 3.15rem;
-  --size-900: 4.2rem;
+  --size-500: 1.25rem;
+  --size-600: 1.57rem;
+  --size-700: 2.0rem;
+  --size-800: 3.0rem;
+  --size-900: 4.0rem;
 }
 
 /* Theme colors */
