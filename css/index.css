@@ -4,7 +4,7 @@
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
   --size-300: 0.75rem;
   --size-400: 1.05rem;
-  --size-500: 1.28rem;
+  --size-500: 1.20rem;
   --size-600: 1.57rem;
   --size-700: 2.0rem;
   --size-800: 3.0rem;
@@ -26,6 +26,17 @@
     --text-color-link-visited: #fff;
     --background-color: #000;
   }
+}
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.wrapper {
+  border-width: var(--border-thick);
+  border: var(--border-thick) solid;
+  padding: var(--padding);
 }
 
 
@@ -117,6 +128,7 @@ a[href] {
 }
 a[href]:visited {
   color: var(--text-color-link);
+    text-decoration: none;
 }
 
 [href]:hover {
@@ -178,7 +190,7 @@ code {
   padding: 0 1rem;
   float: left;
   margin: 1rem 0; /* 16px /16 */
-  font-size: 1em; /* 16px /16 */
+
 }
 .home :link:not(:hover) {
   text-decoration: none;
@@ -200,7 +212,8 @@ code {
 }
 .nav-item-active {
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
+  color: #ff3131
 }
 
 /* Posts list */
