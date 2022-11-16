@@ -246,9 +246,6 @@ code {
 
 /* Tags */
 .post-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   text-transform: uppercase;
   padding: 0em; /* 1px 4px /12 */
   color: var(--text-color);
