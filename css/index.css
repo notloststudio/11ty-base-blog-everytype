@@ -112,7 +112,8 @@ p,
 
 a[href] {
   color: var(--text-color);
-    border-bottom: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+  text-decoration: none
 }
 a[href]:visited {
   color: var(--text-color-link);
@@ -254,6 +255,7 @@ code {
   border-bottom: 2px solid var(--text-color);
   border-radius: 0em; /* 3px /12 */
   text-decoration: none;
+  margin-left: 1em; /* 8px /12 */
 }
 a[href].post-tag,
 a[href].post-tag:visited {
